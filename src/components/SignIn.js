@@ -13,7 +13,7 @@ const SignIn = () => {
     event.preventDefault();
     signInUser(username, password)
       .then(() => {
-        navigate("/coffee");
+        navigate("/employed");
       })
       .catch((error) => {
         console.log(error);
@@ -27,7 +27,7 @@ const SignIn = () => {
       <h1>LOGIN</h1>
       <span>Username </span>
       <input
-        placeholder="Enter username"
+        placeholder="Enter Username"
         type="text"
         name="username"
         onChange={(e) => setUsername(e.target.value)}
@@ -36,14 +36,14 @@ const SignIn = () => {
       <br></br>
       <span>Password </span>
       <input
-        placeholder="Enter password"
+        placeholder="Enter Password"
         type="password"
         name="password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <br />
       <br></br>
-      <button>Sign In</button>
+      <button>Log In</button>
     </form>
   );
 };

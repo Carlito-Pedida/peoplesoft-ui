@@ -2,38 +2,48 @@ import React from "react";
 import { Route, BrowserRouter, Routes, Link } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import CoffeeList from "./components/CoffeeList";
-import NewCoffee from "./components/NewCoffee";
+import EmployeeList from "./components/EmployeeList";
+import NewEmployee from "./components/NewEmployee";
 import { UserProvider } from "./contexts/UserProvider";
-import { CoffeeProvider } from "./contexts/CoffeeProvider";
+import { EmployeeProvider } from "./contexts/EmployeeProvider";
 import "./App.css";
-import EditCoffee from "./components/EditCoffee";
+import EditEmployee from "./components/EditEmployee";
+import Navigation from "./components/Navigation";
+import EmployeeFax from "./components/EmployeeFax";
 
 function App() {
   return (
     <UserProvider>
-      <CoffeeProvider>
+      <EmployeeProvider>
         <div>
+          <Navigation />
           <BrowserRouter>
             <nav>
               <Link to="/signup">Sign Up</Link>
               <span> | </span>
               <Link to="/signin">Sign In</Link>
               <span> | </span>
-              <Link to="/coffee">Coffee List</Link>
+              <Link to="/employed">Employee Database</Link>
               <hr></hr>
             </nav>
             <Routes>
               <Route exact path="/" element={<SignIn />} />
-              <Route path="/coffee/edit/:coffeeId" element={<EditCoffee />} />
+              <Route
+                path="/employee/edit/:employeeId"
+                element={<EditEmployee />}
+              />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/coffee/new" element={<NewCoffee />} />
-              <Route path="/coffee" element={<CoffeeList />} />
+              <Route path="/employee/new" element={<NewEmployee />} />
+              <Route path="/employed" element={<EmployeeList />} />
+              <Route
+                path="/employee_profile/:employeeId"
+                element={<EmployeeFax />}
+              />
             </Routes>
           </BrowserRouter>
         </div>
-      </CoffeeProvider>
+      </EmployeeProvider>
     </UserProvider>
   );
 }

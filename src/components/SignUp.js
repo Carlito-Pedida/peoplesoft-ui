@@ -1,37 +1,98 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import UserContext from '../contexts/UserContext';
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 
 const SignUp = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  const [first_name, setFirst_name] = useState("");
+  const [last_name, setLast_name] = useState("");
+  const [position, setPosition] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    let { createUser } = useContext(UserContext);
-    let navigate = useNavigate();
+  let { createUser } = useContext(UserContext);
+  let navigate = useNavigate();
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        createUser(username, password).then(() => {
-            navigate('/signin');
-        }).catch(error => {
-            console.log(error);
-            window.alert('Failed registration: error creating user');
-        });
-    }
+  function handleSubmit(event) {
+    event.preventDefault();
+    createUser(first_name, last_name, imageUrl, position, username, password)
+      .then(() => {
+        navigate("/signin");
+      })
+      .catch((error) => {
+        console.log(error);
+        window.alert("Failed registration: error creating user");
+      });
+  }
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <h1>REGISTER</h1>
-            <br></br><br></br>
-            <span>Username  </span>
-            <input placeholder="Enter Email" type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
-            <br></br><br></br>
-            <span>Password  </span>
-            <input placeholder="Enter Password" type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-            <br /><br></br>
-            <button>Sign Up</button>
-        </form>
-    )
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Register Manager/Supervisor Information</h1>
+      <br></br>
+      <br></br>
+      <span>First Name </span>
+      <input
+        placeholder="Enter First Name"
+        type="text"
+        name="first_name"
+        value={first_name}
+        onChange={(e) => setFirst_name(e.target.value)}
+      />
+      <br></br>
+      <br></br>
+      <span>Last Name </span>
+      <input
+        placeholder="Enter Last Name"
+        type="text"
+        name="last_name"
+        value={last_name}
+        onChange={(e) => setLast_name(e.target.value)}
+      />
+      <br></br>
+      <br></br>
+      <span>Add Picture Link </span>
+      <input
+        placeholder="Enter Image URL"
+        type="text"
+        name="imageUrl"
+        value={imageUrl}
+        onChange={(e) => setImageUrl(e.target.value)}
+      />
+      <br></br>
+      <br></br>
+      <span>Position </span>
+      <input
+        placeholder="Enter Position"
+        type="text"
+        name="position"
+        value={position}
+        onChange={(e) => setPosition(e.target.value)}
+      />
+      <br></br>
+      <br></br>
+      <span>Username </span>
+      <input
+        placeholder="Enter Email"
+        type="text"
+        name="username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <br></br>
+      <br></br>
+      <span>Password </span>
+      <input
+        placeholder="Enter Password"
+        type="password"
+        name="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <br />
+      <br></br>
+      <button>Register</button>
+    </form>
+  );
 };
 
 export default SignUp;
