@@ -10,6 +10,8 @@ import "./App.css";
 import EditEmployee from "./components/EditEmployee";
 import Navigation from "./components/Navigation";
 import EmployeeFax from "./components/EmployeeFax";
+import Home from "./components/Home";
+import Session from "./components/Session";
 
 function App() {
   return (
@@ -18,15 +20,16 @@ function App() {
         <div>
           <Navigation />
           <BrowserRouter>
-            <nav>
+            {/* <nav>
               <Link to="/signup">Sign Up</Link>
               <span> | </span>
               <Link to="/signin">Sign In</Link>
               <span> | </span>
               <Link to="/employed">Employee Database</Link>
               <hr></hr>
-            </nav>
+            </nav> */}
             <Routes>
+              <Route path="/" element={<Home />} index />
               <Route exact path="/" element={<SignIn />} />
               <Route
                 path="/employee/edit/:employeeId"
@@ -36,6 +39,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/employee/new" element={<NewEmployee />} />
               <Route path="/employed" element={<EmployeeList />} />
+              <Route path="/session" element={<Session />} />
               <Route
                 path="/employee_profile/:employeeId"
                 element={<EmployeeFax />}

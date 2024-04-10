@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import "../Styles/Home.css";
 
 const SignIn = () => {
   const [username, setUsername] = useState("");
@@ -23,28 +24,32 @@ const SignIn = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>LOGIN</h1>
-      <span>Username </span>
-      <input
-        placeholder="Enter Username"
-        type="text"
-        name="username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br></br>
-      <br></br>
-      <span>Password </span>
-      <input
-        placeholder="Enter Password"
-        type="password"
-        name="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <br></br>
-      <button>Log In</button>
-    </form>
+    <div className="text-center">
+      <h3>Login to Management Portal</h3>
+      <form className="sign-form" onSubmit={handleSubmit}>
+        <input
+          placeholder="Enter Username"
+          type="text"
+          name="username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <br></br>
+        <br></br>
+
+        <input
+          placeholder="Enter Password"
+          type="password"
+          name="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <br></br>
+        <button>Log In</button>
+      </form>
+      <hr style={{ marginLeft: "300px", marginRight: "300px" }}></hr>
+
+      <button className="create">Create Management Account</button>
+    </div>
   );
 };
 
