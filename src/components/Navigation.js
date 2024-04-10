@@ -3,22 +3,24 @@ import "../Styles/Navigation.css";
 
 const Navigation = () => {
   return (
-    <nav className="navbar">
-      <ul className="nav-list">
-        <li className="nav-item">
-          <a href="/">Home</a>
-        </li>
-        <li className="nav-item">
-          <a href="/about">About</a>
-        </li>
-        <li className="nav-item">
-          <a href="/services">Services</a>
-        </li>
-        <li className="nav-item">
-          <a href="/contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
+    <div>
+      <nav className="navbar">
+        <ul className="nav-list">
+          <li className="nav-item">
+            <a href="/">Home</a>
+          </li>
+          <li className="nav-item">
+            <a href="/about">Personal Details</a>
+          </li>
+          <li className="nav-item">
+            <a href="/employed">Employee Records</a>
+          </li>
+          <li className="nav-item">
+            <a href="/contact">Contact IT Support</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 

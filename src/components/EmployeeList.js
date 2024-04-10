@@ -30,10 +30,10 @@ function EmployeeList() {
       {({ employee }) => {
         return (
           <div>
-            <Link className="button" to="/employee/new">
+            <Link className="button my-5" to="/employee/new">
               Add New Employee Record
             </Link>
-            <h1 className="my-3">Employee Records</h1>
+            <h1 className="">Employee Records</h1>
 
             {console.log(employee)}
             <div>
@@ -106,14 +106,3 @@ function EmployeeList() {
 }
 
 export default EmployeeList;
-
-{
-  /* <Link to={`/employee/edit/${emp._id}`}>Edit</Link>
-                    <span> | </span>
-                    <Link
-                      to={"/employee/"}
-                      onClick={handleDelete.bind(this, emp._id)}
-                    >
-                      Delete Employee
-                    </Link> */
-}
