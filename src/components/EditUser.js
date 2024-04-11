@@ -4,6 +4,9 @@ import UserContext from "../contexts/UserContext";
 import Stack from "react-bootstrap/Stack";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import "../Styles/Style.css";
 
 const EditUser = ({ user }) => {
@@ -61,7 +64,7 @@ const EditUser = ({ user }) => {
   return (
     <div className="form-case">
       <Form onSubmit={handleSubmit}>
-        <Stack gap={3} className="col-md-5 mx-auto my-5">
+        <Stack gap={3} className="col-md-5 mx-auto my-4">
           <h1>Update Information</h1>
 
           <span>First Name </span>
@@ -117,10 +120,18 @@ const EditUser = ({ user }) => {
             value={password}
             onChange={handleChange}
           />
-
-          <Button type="submit" variant="success">
-            Update Profile
-          </Button>
+          <div className="d-flex justify-content-end">
+            <Button
+              onClick={() => navigate(-1)}
+              className="me-3"
+              variant="danger"
+            >
+              Cancel
+            </Button>
+            <Button type="submit" variant="success">
+              Update Profile
+            </Button>
+          </div>
         </Stack>
       </Form>
     </div>

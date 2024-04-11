@@ -18,6 +18,7 @@ import About from "./components/Profile";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Profile from "./components/Profile";
 import EditUser from "./components/EditUser";
+import Support from "./components/Support";
 
 function App() {
   const [user, setUser] = useState();
@@ -43,7 +44,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/employee/new" element={<NewEmployee />} />
               <Route element={<PrivateRoutes />}>
-                <Route path="/profile/:userId" element={<Profile />} />
+                <Route path="/profile/:userId/" element={<Profile />} />
                 <Route path="/profile/:userId/update" element={<EditUser />} />
                 <Route path="/session" element={<Session user={user} />} />
                 <Route path="/employed" element={<EmployeeList />} />
@@ -57,6 +58,7 @@ function App() {
                 element={<EmployeeFax />}
               />
               <Route path="/signout" element={<SignOut />} />
+              <Route path="/support" element={<Support />} />
             </Routes>
           </BrowserRouter>
         </div>
