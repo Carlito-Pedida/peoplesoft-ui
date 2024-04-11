@@ -17,7 +17,7 @@ const SignUp = () => {
     event.preventDefault();
     createUser(first_name, last_name, imageUrl, position, username, password)
       .then(() => {
-        navigate("/signin");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

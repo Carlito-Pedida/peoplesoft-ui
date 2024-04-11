@@ -3,7 +3,7 @@ import UserContext from "./UserContext";
 import { useEffect, useState } from "react";
 
 export const UserProvider = (props) => {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
   const baseUrl = "http://localhost:4000/api/users/";
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const UserProvider = (props) => {
   function getAllUsers() {
     return axios
       .get(baseUrl)
-      .then((response) => setUser(response.data))
+      .then((response) => setUsers(response.data))
       .catch((error) => console.error("Error fetching user assets:", error));
   }
 
@@ -51,11 +51,35 @@ export const UserProvider = (props) => {
     });
   }
 
+  function getOneUser(userId) {
+    return axios
+      .get(baseUrl + userId)
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error("Error fetching user:", error);
+        throw error; // Let the error propagate
+      });
+  }
+
+  function updateOneUser(user) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("myUserToken")}`
+    };
+
+    return axios.put(baseUrl + user._id, user, { headers }).then((response) => {
+      getAllUsers();
+      return new Promise((resolve) => resolve(response.data));
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
+        users,
         createUser,
-        signInUser
+        signInUser,
+        updateOneUser,
+        getOneUser
       }}
     >
       {props.children}

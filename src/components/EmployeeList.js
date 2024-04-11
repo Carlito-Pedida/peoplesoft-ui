@@ -55,8 +55,8 @@ function EmployeeList() {
 
                 {employee.map((emp) => {
                   return (
-                    <tbody>
-                      <tr key={emp._id}>
+                    <tbody key={emp._id}>
+                      <tr>
                         <td>{emp.badge_number}</td>
                         <td>
                           <img
