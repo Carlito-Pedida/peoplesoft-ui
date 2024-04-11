@@ -30,13 +30,13 @@ function EmployeeList() {
       {({ employee }) => {
         return (
           <div>
-            <Link className="button my-5" to="/employee/new">
+            <Link className="button my-3" to="/employee/new">
               Add New Employee Record
             </Link>
             <h1 className="">Employee Records</h1>
 
             {console.log(employee)}
-            <div>
+            <div className="table">
               <Table striped bordered hover>
                 <thead>
                   <tr>

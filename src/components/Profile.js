@@ -36,7 +36,7 @@ const Profile = () => {
             {first_name} {last_name}
           </h2>
           <h3>Position: {position} </h3>
-          <h3>{username}</h3>
+          <h3>@{username}</h3>
           <div className="mt-4">
             <Link className="updateLink" to={`/profile/${_id}/update`}>
               Update Profile

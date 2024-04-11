@@ -1,6 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import Stack from "react-bootstrap/Stack";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "../Styles/Style.css";
 
 const EditUser = ({ user }) => {
   let params = useParams();
@@ -38,24 +42,6 @@ const EditUser = ({ user }) => {
     return updateOneUser(oneUser);
   }
 
-  //   function handleSubmit(event) {
-  //     event.preventDefault();
-  //     updateUser(oneUser)
-  //       .then((response) => {
-  //         if (response && response.ok) {
-  //           alert(`${oneUser.first_name} ${oneUser.last_name} is updated!`);
-  //           navigate(`/profile/${_id}`);
-  //         } else {
-  //           alert("You are not allowed to perform this operation");
-  //           navigate("/signIn");
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error("There was an error!", error);
-  //         alert("Error updating user. Please try again later.");
-  //       });
-  //   }
-
   function handleSubmit(event) {
     event.preventDefault();
     updateUser(oneUser)
@@ -72,85 +58,72 @@ const EditUser = ({ user }) => {
       });
   }
 
-  //   function handleSubmit(event) {
-  //     event.preventDefault();
-  //     updateUser(first_name, last_name, imageUrl, position, username, password)
-  //       .then(() => {
-  //         navigate("/");
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         window.alert("Failed registration: error creating user");
-  //       });
-  //   }
-
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Register Manager/Supervisor Information</h1>
-      <br></br>
-      <br></br>
-      <span>First Name </span>
-      <input
-        placeholder="Enter First Name"
-        type="text"
-        name="first_name"
-        value={first_name}
-        onChange={handleChange}
-      />
-      <br></br>
-      <br></br>
-      <span>Last Name </span>
-      <input
-        placeholder="Enter Last Name"
-        type="text"
-        name="last_name"
-        value={last_name}
-        onChange={handleChange}
-      />
-      <br></br>
-      <br></br>
-      <span>Add Picture Link </span>
-      <input
-        placeholder="Enter Image URL"
-        type="text"
-        name="imageUrl"
-        value={imageUrl}
-        onChange={handleChange}
-      />
-      <br></br>
-      <br></br>
-      <span>Position </span>
-      <input
-        placeholder="Enter Position"
-        type="text"
-        name="position"
-        value={position}
-        onChange={handleChange}
-      />
-      <br></br>
-      <br></br>
-      <span>Username </span>
-      <input
-        placeholder="Enter Email"
-        type="text"
-        name="username"
-        value={username}
-        onChange={handleChange}
-      />
-      <br></br>
-      <br></br>
-      <span>Password </span>
-      <input
-        placeholder="Enter Password"
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-      />
-      <br />
-      <br></br>
-      <button>Update Profile</button>
-    </form>
+    <div className="form-case">
+      <Form onSubmit={handleSubmit}>
+        <Stack gap={3} className="col-md-5 mx-auto my-5">
+          <h1>Update Information</h1>
+
+          <span>First Name </span>
+          <Form.Control
+            placeholder="Enter First Name"
+            type="text"
+            name="first_name"
+            value={first_name}
+            onChange={handleChange}
+          />
+
+          <span>Last Name </span>
+          <Form.Control
+            placeholder="Enter Last Name"
+            type="text"
+            name="last_name"
+            value={last_name}
+            onChange={handleChange}
+          />
+
+          <span>Add Picture Link </span>
+          <Form.Control
+            placeholder="Enter Image URL"
+            type="text"
+            name="imageUrl"
+            value={imageUrl}
+            onChange={handleChange}
+          />
+
+          <span>Position </span>
+          <Form.Control
+            placeholder="Enter Position"
+            type="text"
+            name="position"
+            value={position}
+            onChange={handleChange}
+          />
+
+          <span>Username </span>
+          <Form.Control
+            placeholder="Enter Email"
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleChange}
+          />
+
+          <span>Password </span>
+          <Form.Control
+            placeholder="Enter Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+
+          <Button type="submit" variant="success">
+            Update Profile
+          </Button>
+        </Stack>
+      </Form>
+    </div>
   );
 };
 
