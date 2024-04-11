@@ -4,6 +4,8 @@
 }
 
 .nav-list {
+  display: flex;
+  align-items: center;
   list-style-type: none;
   padding: 30;
   margin: 0;

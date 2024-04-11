@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import "../Styles/Home.css";
 
 const SignIn = () => {
+  let params = useParams();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,13 +15,19 @@ const SignIn = () => {
     event.preventDefault();
     signInUser(username, password)
       .then(() => {
-        navigate("/employed");
+        window.location = "/";
       })
       .catch((error) => {
         console.log(error);
         window.alert("Failed login");
-        navigate("/signin");
+        navigate("/");
       });
+  }
+
+  function handleSignUp(event) {
+    event.preventDefault();
+
+    navigate("/signup");
   }
 
   return (
@@ -48,7 +55,9 @@ const SignIn = () => {
       </form>
       <hr style={{ marginLeft: "300px", marginRight: "300px" }}></hr>
 
-      <button className="create">Create Management Account</button>
+      <button onClick={handleSignUp} className="create">
+        Create Management Account
+      </button>
     </div>
   );
 };
