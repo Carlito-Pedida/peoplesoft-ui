@@ -32,7 +32,7 @@ const SignIn = () => {
 
   return (
     <div className="text-center">
-      <h3>Login to Management Portal</h3>
+      <h3 className="mb-3">Login to Management Portal</h3>
       <form className="sign-form" onSubmit={handleSubmit}>
         <input
           placeholder="Enter Username"

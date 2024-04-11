@@ -26,12 +26,12 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="container profile-case">
+    <div className="profile-case">
       <div className="profile-box row">
         <div className="col-3">
           <img height={300} src={imageUrl} />
         </div>
-        <div style={{ padding: "30px" }} className="col-3">
+        <div style={{ padding: "30px", border: "solid" }} className="col-4">
           <h2>
             {first_name} {last_name}
           </h2>

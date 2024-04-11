@@ -1,9 +1,15 @@
 .home {
-  margin: 80px 200px;
+  margin: 40px;
   background-color: rgba(98, 134, 98, 0.83);
   color: white;
   padding: 75px;
   border-radius: 15px;
+}
+.home2 {
+  background-color: rgba(98, 134, 98, 0.83);
+  color: white;
+  padding: 50px;
+  margin: 15px 0;
 }
 .logo {
   display: flex;
@@ -57,7 +63,7 @@
 .profile-case {
   margin: 50px;
   padding: 70px 0px;
-  background-color: #3a453c78;
+  background-color: rgba(98, 134, 98, 0.83);
   color: white;
   border-radius: 10px;
 }
@@ -72,11 +78,11 @@
   background-color: #539e2b;
 }
 .updateLink {
-  border: solid 1px #0c8944;
+  border: solid 1px #ffffff;
   background-color: #0c8944;
   text-decoration: none;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 35px;
   border-radius: 10px;
 }
 
@@ -90,8 +96,9 @@
 }
 
 .form-case {
-  background-color: #9e9e9e;
-  padding: 20px 50px;
+  background-color: rgba(98, 134, 98, 0.83);
+  margin: 20px 0;
+  padding: 20px;
   color: white;
 }
 
@@ -99,7 +106,7 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
-  background-color: #9e9e9e;
+  background-color: rgba(98, 134, 98, 0.83);
   margin: 20px 0;
   padding: 30px;
   color: white;

@@ -65,7 +65,7 @@ const Navigation = ({ user }) => {
                 <a href="/employed">Employee Records</a>
               </li>
               <li className="nav-item">
-                <a href="/contact">Contact IT Support</a>
+                <a href="/support">Contact IT Support</a>
               </li>
               <li className="nav-item">
                 <a href="/signout">SIGN OUT</a>
@@ -86,7 +86,7 @@ const Navigation = ({ user }) => {
                 <a href="/employed">Employee Records</a>
               </li>
               <li className="nav-item">
-                <a href="/contact">Contact IT Support</a>
+                <a href="/support">Contact IT Support</a>
               </li>
             </ul>
           </nav>

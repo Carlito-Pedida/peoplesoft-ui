@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import "../Styles/Style.css";
 
 const PrivateRoutes = () => {
   let navigate = useNavigate();
@@ -22,9 +23,11 @@ const PrivateRoutes = () => {
 
   if (redirect) {
     return (
-      <div>
-        <h1>You are not allowed here!!! Idiot.</h1>
-        <Button onClick={handleClick}>Go Back</Button>
+      <div className="home">
+        <h1>You need to sign in to access this area!</h1>
+        <Button variant="success" onClick={handleClick}>
+          Sign In
+        </Button>
       </div>
     );
   }

@@ -1,6 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import Stack from "react-bootstrap/Stack";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "../Styles/Style.css";
 
 const SignUp = () => {
   const [first_name, setFirst_name] = useState("");
@@ -26,72 +30,137 @@ const SignUp = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Register Manager/Supervisor Information</h1>
-      <br></br>
-      <br></br>
-      <span>First Name </span>
-      <input
-        placeholder="Enter First Name"
-        type="text"
-        name="first_name"
-        value={first_name}
-        onChange={(e) => setFirst_name(e.target.value)}
-      />
-      <br></br>
-      <br></br>
-      <span>Last Name </span>
-      <input
-        placeholder="Enter Last Name"
-        type="text"
-        name="last_name"
-        value={last_name}
-        onChange={(e) => setLast_name(e.target.value)}
-      />
-      <br></br>
-      <br></br>
-      <span>Add Picture Link </span>
-      <input
-        placeholder="Enter Image URL"
-        type="text"
-        name="imageUrl"
-        value={imageUrl}
-        onChange={(e) => setImageUrl(e.target.value)}
-      />
-      <br></br>
-      <br></br>
-      <span>Position </span>
-      <input
-        placeholder="Enter Position"
-        type="text"
-        name="position"
-        value={position}
-        onChange={(e) => setPosition(e.target.value)}
-      />
-      <br></br>
-      <br></br>
-      <span>Username </span>
-      <input
-        placeholder="Enter Email"
-        type="text"
-        name="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br></br>
-      <br></br>
-      <span>Password </span>
-      <input
-        placeholder="Enter Password"
-        type="password"
-        name="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <br></br>
-      <button>Register</button>
-    </form>
+    // <form onSubmit={handleSubmit}>
+    //   <h1>Register Manager/Supervisor Information</h1>
+    //   <br></br>
+    //   <br></br>
+    //   <span>First Name </span>
+    //   <input
+    //     placeholder="Enter First Name"
+    //     type="text"
+    //     name="first_name"
+    //     value={first_name}
+    //     onChange={(e) => setFirst_name(e.target.value)}
+    //   />
+    //   <br></br>
+    //   <br></br>
+    //   <span>Last Name </span>
+    //   <input
+    //     placeholder="Enter Last Name"
+    //     type="text"
+    //     name="last_name"
+    //     value={last_name}
+    //     onChange={(e) => setLast_name(e.target.value)}
+    //   />
+    //   <br></br>
+    //   <br></br>
+    //   <span>Add Picture Link </span>
+    //   <input
+    //     placeholder="Enter Image URL"
+    //     type="text"
+    //     name="imageUrl"
+    //     value={imageUrl}
+    //     onChange={(e) => setImageUrl(e.target.value)}
+    //   />
+    //   <br></br>
+    //   <br></br>
+    //   <span>Position </span>
+    //   <input
+    //     placeholder="Enter Position"
+    //     type="text"
+    //     name="position"
+    //     value={position}
+    //     onChange={(e) => setPosition(e.target.value)}
+    //   />
+    //   <br></br>
+    //   <br></br>
+    //   <span>Username </span>
+    //   <input
+    //     placeholder="Enter Email"
+    //     type="text"
+    //     name="username"
+    //     value={username}
+    //     onChange={(e) => setUsername(e.target.value)}
+    //   />
+    //   <br></br>
+    //   <br></br>
+    //   <span>Password </span>
+    //   <input
+    //     placeholder="Enter Password"
+    //     type="password"
+    //     name="password"
+    //     value={password}
+    //     onChange={(e) => setPassword(e.target.value)}
+    //   />
+    //   <br />
+    //   <br></br>
+    //   <button>Register</button>
+    // </form>
+    <div className="form-case">
+      <Form onSubmit={handleSubmit}>
+        <Stack gap={3} className="col-md-5 mx-auto my-5">
+          <h1>Update Information</h1>
+
+          <span>First Name </span>
+          <Form.Control
+            placeholder="Enter First Name"
+            type="text"
+            name="first_name"
+            value={first_name}
+            onChange={(e) => setFirst_name(e.target.value)}
+          />
+
+          <span>Last Name </span>
+          <Form.Control
+            placeholder="Enter Last Name"
+            type="text"
+            name="last_name"
+            value={last_name}
+            onChange={(e) => setLast_name(e.target.value)}
+          />
+
+          <span>Add Picture Link </span>
+          <Form.Control
+            placeholder="Enter Image URL"
+            type="text"
+            name="imageUrl"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+          />
+
+          <span>Position </span>
+          <Form.Control
+            placeholder="Enter Position"
+            type="text"
+            name="position"
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
+          />
+
+          <span>Username </span>
+          <Form.Control
+            placeholder="Enter Email"
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+
+          <span>Password </span>
+          <Form.Control
+            placeholder="Enter Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <Button type="submit" variant="success">
+            Create Profile
+          </Button>
+        </Stack>
+      </Form>
+    </div>
   );
 };
 
