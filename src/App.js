@@ -49,7 +49,7 @@ function App() {
                 <Route path="/session" element={<Session user={user} />} />
                 <Route path="/employed" element={<EmployeeList />} />
                 <Route
-                  path="/employee/edit/:employeeId"
+                  path="/employee/:employeeId/update"
                   element={<EditEmployee />}
                 />
               </Route>
