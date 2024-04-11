@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Landing from "../assets/Landing";
 import SignIn from "./SignIn";
-import "../Styles/Home.css";
+import "../Styles/Style.css";
 import UserContext from "../contexts/UserContext";
 import Session from "./Session";
 import { useParams } from "react-router-dom";
@@ -27,31 +27,6 @@ const Home = ({ user }) => {
     }
     fetch();
   }, []);
-
-  // useEffect(() => {
-  //   let isMounted = true;
-
-  //   async function fetchData() {
-  //     try {
-  //       const result = await getAllUsers();
-  //       if (isMounted) {
-  //         setUserSession(result);
-  //       }
-  //     } catch (error) {
-  //       if (isMounted) {
-  //         if (error.response && error.response.status === 404) {
-  //           console.clear();
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   fetchData();
-
-  //   return () => {
-  //     isMounted = false;
-  //   };
-  // }, []);
 
   return (
     <div className="home">

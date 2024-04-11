@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../Styles/Navigation.css";
-import { useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import "../Styles/Navigation.css";
 
 const Navigation = ({ user }) => {
   let [userLog, setUserlog] = useState([]);
-  console.log(userLog);
 
   let { getOneUser } = useContext(UserContext);
 
@@ -14,14 +12,13 @@ const Navigation = ({ user }) => {
 
     async function fetchData() {
       try {
-        const result = await getOneUser();
+        const result = await getOneUser(user.userId);
         if (isMounted) {
           setUserlog(result);
         }
       } catch (error) {
         if (isMounted) {
           if (error.response && error.response.status === 404) {
-            // console.clear();
           }
         }
       }

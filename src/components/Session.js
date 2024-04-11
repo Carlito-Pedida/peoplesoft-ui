@@ -1,41 +1,30 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-
-import "../Styles/Home.css";
+import "../Styles/Style.css";
 
 const Session = ({ user }) => {
-  let params = useParams();
   let navigate = useNavigate();
-  const [session, setSession] = useState([]);
+  let params = useParams();
+  let [oneUser, setOneUser] = useState({
+    _id: params.userId,
+    first_name: "",
+    last_name: "",
+    position: "",
+    imageUrl: "",
+    username: ""
+  });
 
-  console.log(session);
+  let { getOneUser } = useContext(UserContext);
 
-  let { getAllUsers } = useContext(UserContext);
+  let { _id, first_name, last_name, position, imageUrl, username } = oneUser;
 
   useEffect(() => {
-    let isMounted = true;
-
-    async function fetchData() {
-      try {
-        const result = await getAllUsers();
-        if (isMounted) {
-          setSession(result);
-        }
-      } catch (error) {
-        if (isMounted) {
-          if (error.response && error.response.status === 404) {
-            console.clear();
-          }
-        }
-      }
+    if (_id == undefined) return;
+    async function fetch() {
+      await getOneUser(_id).then((oneUser) => setOneUser(oneUser));
     }
-
-    fetchData();
-
-    return () => {
-      isMounted = false;
-    };
+    fetch();
   }, []);
 
   function handleClick(event) {
@@ -53,17 +42,7 @@ const Session = ({ user }) => {
 
   return (
     <div className="text-center">
-      {user && (
-        <>
-          <h3>{`Welcome to Management Portal ${user.first_name}`}</h3>
-        </>
-      )}
-      {!user && (
-        <>
-          <h3>{`Welcome to Management Portal`}</h3>
-        </>
-      )}
-
+      <h3 className="mb-5">Welcome to Employee Management Portal</h3>
       <div className="sign-form">
         <button onClick={handleClick}>Proceed to Employee Records</button>
         <hr style={{ marginLeft: "300px", marginRight: "300px" }}></hr>

@@ -13,8 +13,6 @@ const Profile = () => {
     username: ""
   });
 
-  console.log(oneUser);
-
   let { getOneUser } = useContext(UserContext);
 
   let { _id, first_name, last_name, position, imageUrl, username } = oneUser;
@@ -27,32 +25,34 @@ const Profile = () => {
     fetch();
   }, []);
 
-  // useEffect(() => {
-  //   if (!_id) return; // Check if _id exists
-  //   const fetchData = async () => {
-  //     try {
-  //       const user = await getOneUser(_id);
-  //       setOneUser(user);
-  //     } catch (error) {
-  //       console.error("Error fetching user:", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [_id]); // Include _id in the dependency array
-
   return (
-    <div>
-      {first_name} {last_name}
-      <br />
-      <br />
-      {position}
-      <br />
-      <br />
-      {username}
-      <img src={imageUrl} />
-      <Link to={`/profile/${_id}/update`}>Update Profile</Link>
+    <div className="container profile-case">
+      <div className="profile-box row">
+        <div className="col-3">
+          <img height={300} src={imageUrl} />
+        </div>
+        <div style={{ padding: "30px" }} className="col-3">
+          <h2>
+            {first_name} {last_name}
+          </h2>
+          <h3>Position: {position} </h3>
+          <h3>{username}</h3>
+          <div className="mt-4">
+            <Link className="updateLink" to={`/profile/${_id}/update`}>
+              Update Profile
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div></div>
     </div>
   );
 };
 
 export default Profile;
+
+{
+  /* <div className="my-3 col">
+            <h3>{username}</h3>
+          </div> */
+}
