@@ -15,3 +15,7 @@
 .button:hover {
   background-color: #00df00; /* or any darker shade */
 }
+.table {
+  padding: 20px;
+  background-color: #727473;
+}
