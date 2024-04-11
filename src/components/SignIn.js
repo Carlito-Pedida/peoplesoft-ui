@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-import "../Styles/Home.css";
+import "../Styles/Style.css";
 
 const SignIn = () => {
   let params = useParams();

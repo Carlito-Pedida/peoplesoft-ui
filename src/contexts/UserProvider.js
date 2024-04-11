@@ -52,13 +52,14 @@ export const UserProvider = (props) => {
   }
 
   function getOneUser(userId) {
-    return axios
-      .get(baseUrl + userId)
-      .then((response) => response.data)
-      .catch((error) => {
-        console.error("Error fetching user:", error);
-        throw error; // Let the error propagate
-      });
+    return axios.get(baseUrl + userId).then((response) => {
+      getAllUsers();
+      return new Promise((resolve) => resolve(response.data));
+    });
+    // .catch((error) => {
+    //   console.error("Error fetching user:", error);
+    //   throw error; // Let the error propagate
+    // });
   }
 
   function updateOneUser(user) {
