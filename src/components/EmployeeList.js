@@ -62,10 +62,13 @@ function EmployeeList() {
                           <img
                             src={emp.imageUrl}
                             height={35}
-                            className="px-3"
+                            width={35}
                             style={{ borderRadius: "50%" }}
                           />
-                          <Link to={`/employee_profile/${emp._id}`}>
+                          <Link
+                            className="px-3"
+                            to={`/employee_profile/${emp._id}`}
+                          >
                             <strong>
                               {emp.first_name} {emp.last_name}
                             </strong>
