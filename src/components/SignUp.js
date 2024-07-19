@@ -5,6 +5,7 @@ import Stack from "react-bootstrap/Stack";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import styles from "../Styles/SignUpSignIn.module.css";
+import { Container } from "react-bootstrap";
 
 const SignUp = () => {
   const [first_name, setFirst_name] = useState("");
@@ -31,69 +32,70 @@ const SignUp = () => {
 
   return (
     <div className={styles.signUpFormCase}>
-      <Form onSubmit={handleSubmit}>
-        <Stack gap={3} className="p-4">
-          <h1>Employee Information</h1>
+      <Container>
+        <Form onSubmit={handleSubmit}>
+          <Stack gap={3} className="p-4 mx-auto">
+            <h1>Employee Information</h1>
+            <span>First Name </span>
+            <Form.Control
+              placeholder="Enter First Name"
+              type="text"
+              name="first_name"
+              value={first_name}
+              onChange={(e) => setFirst_name(e.target.value)}
+            />
 
-          <span>First Name </span>
-          <Form.Control
-            placeholder="Enter First Name"
-            type="text"
-            name="first_name"
-            value={first_name}
-            onChange={(e) => setFirst_name(e.target.value)}
-          />
+            <span>Last Name </span>
+            <Form.Control
+              placeholder="Enter Last Name"
+              type="text"
+              name="last_name"
+              value={last_name}
+              onChange={(e) => setLast_name(e.target.value)}
+            />
 
-          <span>Last Name </span>
-          <Form.Control
-            placeholder="Enter Last Name"
-            type="text"
-            name="last_name"
-            value={last_name}
-            onChange={(e) => setLast_name(e.target.value)}
-          />
+            <span>Add Picture Link </span>
+            <Form.Control
+              placeholder="Enter Image URL"
+              type="text"
+              name="imageUrl"
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+            />
 
-          <span>Add Picture Link </span>
-          <Form.Control
-            placeholder="Enter Image URL"
-            type="text"
-            name="imageUrl"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-          />
+            <span>Position </span>
+            <Form.Control
+              placeholder="Enter Position"
+              type="text"
+              name="position"
+              value={position}
+              onChange={(e) => setPosition(e.target.value)}
+            />
 
-          <span>Position </span>
-          <Form.Control
-            placeholder="Enter Position"
-            type="text"
-            name="position"
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
-          />
+            <span>Username </span>
+            <Form.Control
+              placeholder="Enter Email"
+              type="text"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
 
-          <span>Username </span>
-          <Form.Control
-            placeholder="Enter Email"
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+            <span>Password </span>
+            <Form.Control
+              placeholder="Enter Password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <span>Password </span>
-          <Form.Control
-            placeholder="Enter Password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <Button type="submit" variant="success">
-            Create Profile
-          </Button>
-        </Stack>
-      </Form>
+            <Button type="submit" variant="success">
+              Create Profile
+            </Button>
+          </Stack>
+        </Form>
+      </Container>
     </div>
   );
 };
