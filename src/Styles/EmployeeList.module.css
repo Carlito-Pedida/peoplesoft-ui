@@ -16,6 +16,13 @@
   background-color: #00df00; /* or any darker shade */
 }
 .table {
-  padding: 20px;
+  padding: 10px;
   background-color: rgba(98, 134, 98, 0.83);
+  white-space: nowrap;
+}
+.scrollableContainer {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-width: 100%;
+  max-height: 600px;
 }

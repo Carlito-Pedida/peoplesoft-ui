@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
 import { useNavigate, useParams } from "react-router-dom";
 import EmployeeContext from "../contexts/EmployeeContext";
-import Stack from "react-bootstrap/Stack";
-import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "../Styles/Style.css";
+import styles from "../Styles/EmpAddEdit.module.css";
 
 const NewEmployee = () => {
   let params = useParams();
@@ -92,10 +90,10 @@ const NewEmployee = () => {
   }
 
   return (
-    <div className="form-case2 text-left">
+    <div className={styles.empFaxFormCase2}>
       <Form className="" onSubmit={handleSubmit} key={_id}>
         <h1>Add Employee Information</h1>
-        <Stack gap={3}>
+        <Stack className="mx-auto" gap={2}>
           <Row>
             <Col>
               <span>Position </span>
@@ -114,16 +112,6 @@ const NewEmployee = () => {
                 type="date"
                 name="hire_date"
                 value={hire_date}
-                onChange={handleChange}
-              />
-            </Col>
-            <Col>
-              <span>Badge Number </span>
-              <Form.Control
-                placeholder="Enter Badge Number"
-                type="number"
-                name="badge_number"
-                value={badge_number}
                 onChange={handleChange}
               />
             </Col>
@@ -149,6 +137,18 @@ const NewEmployee = () => {
                 onChange={handleChange}
               />
             </Col>
+          </Row>
+          <Row>
+            <Col>
+              <span>Badge Number </span>
+              <Form.Control
+                placeholder="Enter Badge Number"
+                type="number"
+                name="badge_number"
+                value={badge_number}
+                onChange={handleChange}
+              />
+            </Col>
             <Col>
               <span>Gender </span>
               <Form.Select name="gender" value={gender} onChange={handleChange}>
@@ -159,6 +159,7 @@ const NewEmployee = () => {
               </Form.Select>
             </Col>
           </Row>
+
           <Row>
             <Col>
               <span>Photo </span>
@@ -192,16 +193,6 @@ const NewEmployee = () => {
                 onChange={handleChange}
               />
             </Col>
-            <Col>
-              <span>Length of Service </span>
-              <Form.Control
-                placeholder="Enter length_of_service"
-                type="number"
-                name="length_of_service"
-                value={length_of_service}
-                onChange={handleChange}
-              />
-            </Col>
           </Row>
 
           <Row>
@@ -214,6 +205,18 @@ const NewEmployee = () => {
                 <option>Contract</option>
               </Form.Select>
             </Col>
+            <Col>
+              <span>Length of Service </span>
+              <Form.Control
+                placeholder="Enter length_of_service"
+                type="number"
+                name="length_of_service"
+                value={length_of_service}
+                onChange={handleChange}
+              />
+            </Col>
+          </Row>
+          <Row>
             <Col>
               <span>Benefit Package </span>
               <Form.Select
@@ -229,7 +232,6 @@ const NewEmployee = () => {
                 <option>Not Qualified</option>
               </Form.Select>
             </Col>
-
             <Col>
               <span>Salary/Wages </span>
               <Form.Control
@@ -241,6 +243,7 @@ const NewEmployee = () => {
               />
             </Col>
           </Row>
+
           <Row>
             <Col>
               <span>Address </span>
@@ -287,7 +290,7 @@ const NewEmployee = () => {
             </Col>
           </Row>
           <Button className="mt-3" variant="success" type="submit">
-            Create New Employee
+            Add New Employee
           </Button>
         </Stack>
       </Form>

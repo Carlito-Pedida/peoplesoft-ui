@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import styles from "../Styles/Home.module.css";
 import Landing from "../assets/Landing";
-import SignIn from "./SignIn";
-import "../Styles/Style.css";
 import UserContext from "../contexts/UserContext";
 import Session from "./Session";
-import { useParams } from "react-router-dom";
+import SignIn from "./SignIn";
 
 const Home = ({ user }) => {
   let { userId } = useParams();
@@ -29,18 +29,31 @@ const Home = ({ user }) => {
   }, []);
 
   return (
-    <div className="home">
+    <div className={styles.home}>
       <p>{first_name}</p>
       {user && (
         <>
-          <Landing />
-          <Session />
+          <div>
+            <div className="my-3">
+              <Landing />
+            </div>
+            <div className="my-3">
+              <Session />
+            </div>
+          </div>
         </>
       )}
+
       {!user && (
         <>
-          <Landing />
-          <SignIn />
+          <div>
+            <div className="my-3">
+              <Landing />
+            </div>
+            <div className="my-3">
+              <SignIn />
+            </div>
+          </div>
         </>
       )}
     </div>

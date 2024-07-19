@@ -1,15 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Stack from "react-bootstrap/Stack";
 import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-import Stack from "react-bootstrap/Stack";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
-import "../Styles/Style.css";
+import styles from "../Styles/EditUser.module.css";
 
-const EditUser = ({ user }) => {
+const EditUser = () => {
   let params = useParams();
   let [oneUser, setOneUser] = useState({
     _id: params.userId,
@@ -62,9 +60,9 @@ const EditUser = ({ user }) => {
   }
 
   return (
-    <div className="form-case">
+    <div className={styles.editUserFormCase}>
       <Form onSubmit={handleSubmit}>
-        <Stack gap={3} className="col-md-5 mx-auto my-4">
+        <Stack gap={3} className="p-4">
           <h1>Update Information</h1>
 
           <span>First Name </span>

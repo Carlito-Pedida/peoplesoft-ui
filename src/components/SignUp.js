@@ -4,7 +4,7 @@ import UserContext from "../contexts/UserContext";
 import Stack from "react-bootstrap/Stack";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../Styles/Style.css";
+import styles from "../Styles/SignUpSignIn.module.css";
 
 const SignUp = () => {
   const [first_name, setFirst_name] = useState("");
@@ -30,10 +30,10 @@ const SignUp = () => {
   }
 
   return (
-    <div className="form-case">
+    <div className={styles.signUpFormCase}>
       <Form onSubmit={handleSubmit}>
-        <Stack gap={3} className="col-md-5 mx-auto my-5">
-          <h1>Update Information</h1>
+        <Stack gap={3} className="p-4">
+          <h1>Employee Information</h1>
 
           <span>First Name </span>
           <Form.Control

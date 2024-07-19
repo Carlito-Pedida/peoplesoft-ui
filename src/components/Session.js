@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-import "../Styles/Style.css";
+import { Stack, Button } from "react-bootstrap";
+import styles from "../Styles/SignUpSignIn.module.css";
 
-const Session = ({ user }) => {
-  let navigate = useNavigate();
+const Session = () => {
   let params = useParams();
   let [oneUser, setOneUser] = useState({
     _id: params.userId,
@@ -20,19 +20,20 @@ const Session = ({ user }) => {
   let { _id, first_name, last_name, position, imageUrl, username } = oneUser;
 
   useEffect(() => {
-    if (_id == undefined) return;
+    if (_id === params.userId) return;
     async function fetch() {
       await getOneUser(_id).then((oneUser) => setOneUser(oneUser));
     }
     fetch();
   }, []);
 
+  let navigate = useNavigate();
+
   function handleClick(event) {
     event.preventDefault();
 
     navigate("/employed");
   }
-  // console.log(params);
 
   function handleLogOut(event) {
     event.preventDefault();
@@ -40,15 +41,19 @@ const Session = ({ user }) => {
     navigate("/signout");
   }
 
+  console.log(oneUser);
+
   return (
-    <div className="text-center">
-      <h3 className="mb-5">Welcome to Employee Management Portal</h3>
-      <div className="sign-form">
-        <button onClick={handleClick}>Proceed to Employee Records</button>
-        <hr style={{ marginLeft: "300px", marginRight: "300px" }}></hr>
-        <button onClick={handleLogOut}>Log Out</button>
+    <Stack className={`${styles.signInForm} text-center`}>
+      <div>
+        <h3 className="mb-5">Welcome to Employee Management Portal</h3>
       </div>
-    </div>
+      <div>
+        <Button onClick={handleClick}>Employee Records</Button>
+        <hr />
+        <Button onClick={handleLogOut}>Log Out</Button>
+      </div>
+    </Stack>
   );
 };
 

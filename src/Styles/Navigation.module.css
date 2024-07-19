@@ -1,0 +1,41 @@
+.navbar {
+  background-color: rgb(53, 115, 35);
+  display: flex;
+  align-content: space-between;
+}
+
+.navi {
+  align-content: space-between;
+  align-items: center;
+}
+
+.navItem {
+  color: white;
+  text-decoration: none;
+}
+.offCanvasNavItem {
+  color: rgb(134, 131, 131);
+  text-decoration: none;
+}
+
+.offCanvasNavItem:hover {
+  border-radius: 3px;
+  background-color: #85eebb;
+  color: black;
+}
+
+.navItem {
+  text-transform: uppercase;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 18px 30px;
+  text-decoration: none;
+  width: max-content;
+}
+
+.navItem:hover {
+  border-radius: 3px;
+  background-color: #00df00;
+  color: black;
+}

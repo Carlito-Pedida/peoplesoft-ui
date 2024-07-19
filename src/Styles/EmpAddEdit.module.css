@@ -1,0 +1,14 @@
+.empFaxFormCase {
+  padding: 20px;
+  color: white;
+}
+
+.empFaxFormCase2 {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  background-color: rgba(98, 134, 98, 0.83);
+  margin: 10px;
+  padding: 30px;
+  color: white;
+}
