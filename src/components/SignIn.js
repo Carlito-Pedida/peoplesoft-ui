@@ -20,7 +20,7 @@ const SignIn = () => {
       .catch((error) => {
         console.log(error);
         window.alert("Failed login");
-        navigate("/signin");
+        navigate("/");
       });
   }
 

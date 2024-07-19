@@ -22,7 +22,7 @@ function EmployeeList() {
       .catch((error) => {
         console.log(error);
         window.alert("You are not authorized to perform this operation");
-        navigate("/signin");
+        navigate("/");
       });
   }
 
