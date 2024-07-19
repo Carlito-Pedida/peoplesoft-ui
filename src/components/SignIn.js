@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import styles from "../Styles/SignUpSignIn.module.css";
-import { Container, Stack } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 
 const SignIn = () => {
-  let params = useParams();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

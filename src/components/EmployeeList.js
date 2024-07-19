@@ -61,6 +61,7 @@ function EmployeeList() {
                           <td>{emp.badge_number}</td>
                           <td>
                             <img
+                              alt="employee-avatar"
                               src={emp.imageUrl}
                               height={35}
                               width={35}

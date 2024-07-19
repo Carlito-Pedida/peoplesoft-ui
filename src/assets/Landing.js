@@ -6,7 +6,7 @@ const Landing = () => {
     <div>
       <div className="text-center">
         <div className="logo">
-          <img height={75} src={logo} />
+          <img height={75} src={logo} alt="company-logo" />
           <h1>Royal Tech International</h1>
         </div>
       </div>

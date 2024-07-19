@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import { Stack, Button } from "react-bootstrap";
 import styles from "../Styles/SignUpSignIn.module.css";
@@ -17,7 +17,7 @@ const Session = () => {
 
   let { getOneUser } = useContext(UserContext);
 
-  let { _id, first_name, last_name, position, imageUrl, username } = oneUser;
+  let { _id } = oneUser;
 
   useEffect(() => {
     if (_id === params.userId) return;
@@ -25,6 +25,7 @@ const Session = () => {
       await getOneUser(_id).then((oneUser) => setOneUser(oneUser));
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
 
   let navigate = useNavigate();

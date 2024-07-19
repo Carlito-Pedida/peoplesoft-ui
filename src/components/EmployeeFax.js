@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import EmployeeContext from "../contexts/EmployeeContext";
 import Table from "react-bootstrap/Table";
 import moment from "moment";
@@ -28,8 +28,7 @@ const EmployeeFax = () => {
     zip: ""
   });
 
-  let { getEmployee, updateEmployee } = useContext(EmployeeContext);
-  let navigate = useNavigate();
+  let { getEmployee } = useContext(EmployeeContext);
   let {
     first_name,
     last_name,
@@ -57,39 +56,14 @@ const EmployeeFax = () => {
       await getEmployee(_id).then((response) => setEmployee(response));
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
-
-  function handleChange(event) {
-    setEmployee((prevValue) => {
-      return { ...prevValue, [event.target.name]: event.target.value };
-    });
-  }
-
-  function update() {
-    return updateEmployee(employee);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    update(employee)
-      .then(() => {
-        if (!employee.ok) {
-          alert(`${employee.first_name} ${employee.last_name} is updated!`);
-          navigate("/employed");
-        }
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-        alert("You are not allowed to perform this operation");
-        navigate("/signIn");
-      });
-  }
 
   return (
     <div className={styles.empFaxCase}>
       <div className={`row ${styles.empFaxBox}`}>
         <div className={`${styles.empImageBox} col-md-3 text-center mb`}>
-          <img src={imageUrl} />
+          <img src={imageUrl} alt="employee-avatar" />
           <h3>
             {first_name} {last_name}
           </h3>

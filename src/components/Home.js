@@ -16,7 +16,7 @@ const Home = ({ user }) => {
 
   let { getAllUsers } = useContext(UserContext);
 
-  let { _id, first_name, last_name } = userSession;
+  let { first_name } = userSession;
 
   useEffect(() => {
     if (userId === undefined) return;
@@ -26,6 +26,7 @@ const Home = ({ user }) => {
       );
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
 
   return (

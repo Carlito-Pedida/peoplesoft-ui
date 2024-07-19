@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Button, Stack } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-import { Stack } from "react-bootstrap";
-import { Button } from "react-bootstrap";
 
 const Profile = () => {
   let navigate = useNavigate();
@@ -21,11 +20,12 @@ const Profile = () => {
   let { _id, first_name, last_name, position, imageUrl, username } = oneUser;
 
   useEffect(() => {
-    if (_id == undefined) return;
+    if (_id === undefined) return;
     async function fetch() {
       await getOneUser(_id).then((oneUser) => setOneUser(oneUser));
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
 
   console.log(oneUser);
@@ -38,6 +38,7 @@ const Profile = () => {
     <Stack className="text-center text-white mt-5" gap={5}>
       <div className="">
         <img
+          alt="user-avatar"
           style={{ borderRadius: "50%", border: "solid white 5px" }}
           height={200}
           src={imageUrl}

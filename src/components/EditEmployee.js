@@ -60,6 +60,7 @@ const EditEmployee = () => {
       await getEmployee(_id).then((response) => setEmployee(response));
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
 
   function handleChange(event) {

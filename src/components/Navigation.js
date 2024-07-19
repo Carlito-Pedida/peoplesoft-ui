@@ -31,7 +31,7 @@ const Navigation = ({ user }) => {
             <Row>
               <Navbar.Brand>
                 <Link to="/">
-                  <img height={75} src={logo} />
+                  <img height={75} src={logo} alt="comp-logo" />
                 </Link>
               </Navbar.Brand>
             </Row>
@@ -40,6 +40,7 @@ const Navigation = ({ user }) => {
                 <Col>
                   <Link className="d-lg-none" to={`/profile/${user.userId}`}>
                     <img
+                      alt="user-avatar"
                       style={{
                         borderRadius: "50%",
                         border: "solid 2px white"
@@ -64,7 +65,7 @@ const Navigation = ({ user }) => {
                   >
                     <OffcanvasHeader closeButton>
                       <Navbar.Brand onClick={handleOffcanvasClose} to="#home">
-                        <img height={75} src={logo} />
+                        <img height={75} src={logo} alt="logo" />
                       </Navbar.Brand>
                     </OffcanvasHeader>
                     <OffcanvasBody onClick={handleOffcanvasClose}>
@@ -116,6 +117,7 @@ const Navigation = ({ user }) => {
                           to={`/profile/${user.userId}`}
                         >
                           <img
+                            alt="user-avatar"
                             style={{
                               borderRadius: "50%",
                               border: "solid 3px white"
@@ -148,7 +150,7 @@ const Navigation = ({ user }) => {
                   >
                     <OffcanvasHeader closeButton>
                       <Navbar.Brand onClick={handleOffcanvasClose} to="/">
-                        <img height={75} src={logo} />
+                        <img height={75} src={logo} alt="logo" />
                       </Navbar.Brand>
                     </OffcanvasHeader>
                     <OffcanvasBody onClick={handleOffcanvasClose}>

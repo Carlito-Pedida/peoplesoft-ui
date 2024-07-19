@@ -31,6 +31,7 @@ const EditUser = () => {
       await getOneUser(_id).then((response) => setOneUser(response));
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
 
   function handleChange(event) {

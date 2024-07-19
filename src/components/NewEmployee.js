@@ -62,6 +62,7 @@ const NewEmployee = () => {
       await getEmployee(_id).then((employee) => setEmployee(employee));
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
 
   function handleChange(event) {
