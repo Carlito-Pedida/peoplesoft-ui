@@ -56,7 +56,7 @@ const EditUser = () => {
       .catch((error) => {
         console.error("There was an error!", error);
         alert("You are not allowed to perform this operation");
-        navigate("/signIn");
+        navigate("/");
       });
   }
 

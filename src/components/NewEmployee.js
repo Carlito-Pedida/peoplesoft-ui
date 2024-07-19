@@ -86,7 +86,7 @@ const NewEmployee = () => {
       .catch((error) => {
         console.log(error);
         window.alert(error);
-        navigate("/signin");
+        navigate("/");
       });
   }
 

@@ -40,8 +40,8 @@ function App() {
               <Route path="/" element={<SignIn />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/employee/new" element={<NewEmployee />} />
               <Route element={<PrivateRoutes />}>
+                <Route path="/employee/new" element={<NewEmployee />} />
                 <Route path="/profile/:userId/" element={<Profile />} />
                 <Route path="/profile/:userId/update" element={<EditUser />} />
                 <Route path="/session" element={<Session user={user} />} />
