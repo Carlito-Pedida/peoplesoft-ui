@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-import "../Styles/Style.css";
+import styles from "../Styles/SignUpSignIn.module.css";
+import { Stack } from "react-bootstrap";
 
 const SignIn = () => {
-  let params = useParams();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +20,7 @@ const SignIn = () => {
       .catch((error) => {
         console.log(error);
         window.alert("Failed login");
-        navigate("/");
+        navigate("/signin");
       });
   }
 
@@ -33,29 +33,30 @@ const SignIn = () => {
   return (
     <div className="text-center">
       <h3 className="mb-3">Login to Management Portal</h3>
-      <form className="sign-form" onSubmit={handleSubmit}>
-        <input
-          placeholder="Enter Username"
-          type="text"
-          name="username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <br></br>
-        <br></br>
+      <form className={styles.signInForm} onSubmit={handleSubmit}>
+        <Stack className="col-md-5 mx-auto">
+          <input
+            placeholder="Enter Username"
+            type="text"
+            name="username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <br />
 
-        <input
-          placeholder="Enter Password"
-          type="password"
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <br></br>
-        <button>Log In</button>
+          <input
+            placeholder="Enter Password"
+            type="password"
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+          <br></br>
+          <button className="mx-auto">Log In</button>
+        </Stack>
       </form>
       <hr style={{ marginLeft: "300px", marginRight: "300px" }}></hr>
 
-      <button onClick={handleSignUp} className="create">
+      <button onClick={handleSignUp} className={`${styles.create} mx-auto`}>
         Create Management Account
       </button>
     </div>

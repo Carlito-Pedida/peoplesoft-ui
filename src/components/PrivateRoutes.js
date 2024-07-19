@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import "../Styles/Style.css";
+import { Button, Stack } from "react-bootstrap";
+import styles from "../Styles/Home.module.css";
 
 const PrivateRoutes = () => {
   let navigate = useNavigate();
@@ -23,12 +23,16 @@ const PrivateRoutes = () => {
 
   if (redirect) {
     return (
-      <div className="home">
-        <h1>You need to sign in to access this area!</h1>
-        <Button variant="success" onClick={handleClick}>
-          Sign In
-        </Button>
-      </div>
+      <Stack className="text-center">
+        <div className={styles.home}>
+          <h1>You need to sign in to access this area!</h1>
+        </div>
+        <div>
+          <Button variant="success px-5" onClick={handleClick}>
+            Sign In
+          </Button>
+        </div>
+      </Stack>
     );
   }
 

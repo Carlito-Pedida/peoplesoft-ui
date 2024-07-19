@@ -1,15 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
 import { useNavigate, useParams } from "react-router-dom";
 import EmployeeContext from "../contexts/EmployeeContext";
-import moment from "moment";
-import Stack from "react-bootstrap/Stack";
-import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "../Styles/Style.css";
+import styles from "../Styles/EmpAddEdit.module.css";
 
 const EditEmployee = () => {
   let params = useParams();
@@ -63,13 +60,9 @@ const EditEmployee = () => {
       await getEmployee(_id).then((response) => setEmployee(response));
     }
     fetch();
+    /* eslint-disable-next-line */
   }, []);
 
-  // function handleChange(event) {
-  //   setEmployee((prevValue) => {
-  //     return { ...prevValue, [event.target.name]: event.target.value };
-  //   });
-  // }
   function handleChange(event) {
     const { name, value } = event.target;
     let formattedValue = value;
@@ -108,187 +101,10 @@ const EditEmployee = () => {
   }
 
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <h1>EDIT Employee</h1>
-    //   <span>Position </span>
-    //   <input
-    //     placeholder="Enter Job Position"
-    //     type="text"
-    //     name="position"
-    //     value={position}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>First Name </span>
-    //   <input
-    //     placeholder="Enter First Name"
-    //     type="text"
-    //     name="first_name"
-    //     value={first_name}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>Last Name </span>
-    //   <input
-    //     placeholder="Enter Last Name"
-    //     type="text"
-    //     name="last_name"
-    //     value={last_name}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>Gender </span>
-    //   <select name="gender" value={gender} onChange={handleChange}>
-    //     <option>Choose Gender</option>
-    //     <option>Male</option>
-    //     <option>Female</option>
-    //     <option>Non-Binary</option>
-    //   </select>
-    //   <br></br>
-    //   <br></br>
-    //   <span>Photo </span>
-    //   <input
-    //     placeholder="Enter Image URL"
-    //     type="text"
-    //     name="imageUrl"
-    //     value={imageUrl}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>Email </span>
-    //   <input
-    //     placeholder="Enter Email"
-    //     type="text"
-    //     name="email"
-    //     value={email}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-
-    //   <span>Phone </span>
-    //   <input
-    //     placeholder="Enter Phone Number"
-    //     type="text"
-    //     name="phone"
-    //     value={phone}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>Badge Number </span>
-    //   <input
-    //     placeholder="Enter Badge Number"
-    //     type="number"
-    //     name="badge_number"
-    //     value={badge_number}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-
-    //   <span>Date of Hire </span>
-    //   <input
-    //     placeholder="Enter Badge Number"
-    //     type="text"
-    //     name="hire_date"
-    //     value={moment.parseZone().local(hire_date).format("LL")}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>Employment Type </span>
-    //   <select name="type" value={type} onChange={handleChange}>
-    //     <option>Choose Employment Type</option>
-    //     <option>Full-time</option>
-    //     <option>Part-time</option>
-    //     <option>Contract</option>
-    //     <option>Intern</option>
-    //   </select>
-    //   <br></br>
-    //   <br></br>
-    //   <span>Benefit Package </span>
-    //   <select name="benefits" value={benefits} onChange={handleChange}>
-    //     <option>Choose Benefit Option</option>
-    //     <option>Package 1 with Full Health Coverage</option>
-    //     <option>Package 2 with Stock Options</option>
-    //     <option>Package 3 with Bonuses and Incentives</option>
-    //     <option>Package 5 with Employee Assistance Program</option>
-    //     <option>Not Qualified</option>
-    //   </select>
-    //   <br></br>
-    //   <br></br>
-    //   <span>Salary/Wages </span>
-    //   <input
-    //     placeholder="Enter Address"
-    //     type="text"
-    //     name="salary"
-    //     value={salary}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>Length of Service </span>
-    //   <input
-    //     placeholder="Enter length_of_service"
-    //     type="number"
-    //     name="length_of_service"
-    //     value={length_of_service}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-
-    //   <span>Address </span>
-    //   <input
-    //     placeholder="Enter Address"
-    //     type="text"
-    //     name="address"
-    //     value={address}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>City </span>
-    //   <input
-    //     placeholder="Enter City"
-    //     type="text"
-    //     name="city"
-    //     value={city}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>State </span>
-    //   <input
-    //     placeholder="Enter State"
-    //     type="text"
-    //     name="state"
-    //     value={state}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <span>zipcode </span>
-    //   <input
-    //     placeholder="Enter Zipcode"
-    //     type="text"
-    //     name="zip"
-    //     value={zip}
-    //     onChange={handleChange}
-    //   />
-    //   <br></br>
-    //   <br></br>
-    //   <button>Update Employee Information</button>
-    // </form>
-    <div className="form-case2 text-left">
+    <div className={styles.empFaxFormCase2}>
       <Form className="" onSubmit={handleSubmit} key={_id}>
         <h1>Update Employee Information</h1>
-        <Stack gap={3}>
+        <Stack className="mx-auto" gap={2}>
           <Row>
             <Col>
               <span>Position </span>
@@ -307,16 +123,6 @@ const EditEmployee = () => {
                 type="date"
                 name="hire_date"
                 value={hire_date}
-                onChange={handleChange}
-              />
-            </Col>
-            <Col>
-              <span>Badge Number </span>
-              <Form.Control
-                placeholder="Enter Badge Number"
-                type="number"
-                name="badge_number"
-                value={badge_number}
                 onChange={handleChange}
               />
             </Col>
@@ -342,6 +148,18 @@ const EditEmployee = () => {
                 onChange={handleChange}
               />
             </Col>
+          </Row>
+          <Row>
+            <Col>
+              <span>Badge Number </span>
+              <Form.Control
+                placeholder="Enter Badge Number"
+                type="number"
+                name="badge_number"
+                value={badge_number}
+                onChange={handleChange}
+              />
+            </Col>
             <Col>
               <span>Gender </span>
               <Form.Select name="gender" value={gender} onChange={handleChange}>
@@ -352,6 +170,7 @@ const EditEmployee = () => {
               </Form.Select>
             </Col>
           </Row>
+
           <Row>
             <Col>
               <span>Photo </span>
@@ -385,16 +204,6 @@ const EditEmployee = () => {
                 onChange={handleChange}
               />
             </Col>
-            <Col>
-              <span>Length of Service </span>
-              <Form.Control
-                placeholder="Enter length_of_service"
-                type="number"
-                name="length_of_service"
-                value={length_of_service}
-                onChange={handleChange}
-              />
-            </Col>
           </Row>
 
           <Row>
@@ -407,6 +216,18 @@ const EditEmployee = () => {
                 <option>Contract</option>
               </Form.Select>
             </Col>
+            <Col>
+              <span>Length of Service </span>
+              <Form.Control
+                placeholder="Enter length_of_service"
+                type="number"
+                name="length_of_service"
+                value={length_of_service}
+                onChange={handleChange}
+              />
+            </Col>
+          </Row>
+          <Row>
             <Col>
               <span>Benefit Package </span>
               <Form.Select
@@ -422,7 +243,6 @@ const EditEmployee = () => {
                 <option>Not Qualified</option>
               </Form.Select>
             </Col>
-
             <Col>
               <span>Salary/Wages </span>
               <Form.Control
@@ -434,6 +254,7 @@ const EditEmployee = () => {
               />
             </Col>
           </Row>
+
           <Row>
             <Col>
               <span>Address </span>
@@ -479,9 +300,18 @@ const EditEmployee = () => {
               />
             </Col>
           </Row>
-          <Button className="mt-3" variant="success" type="submit">
-            Finish Employee Update
-          </Button>
+          <div className="d-flex justify-content-end my-3">
+            <Button
+              onClick={() => navigate(-1)}
+              className="me-3"
+              variant="danger"
+            >
+              Cancel
+            </Button>
+            <Button variant="success" type="submit">
+              Finish Update
+            </Button>
+          </div>
         </Stack>
       </Form>
     </div>

@@ -1,19 +1,16 @@
 import React from "react";
-import Stack from "react-bootstrap/Stack";
-import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
-import Container from "react-bootstrap/Container";
+import { Container, Stack } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../Styles/Style.css";
-
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import styles from "../Styles/Support.module.css";
 const Support = () => {
   return (
-    <div>
-      <div className="home2 text-left">
+    <div className={`${styles.supportCase} p-3 text-white`}>
+      <Container>
         <Row>
-          <Col className="p-3">
+          <Col>
             <p>
               <strong>Technical Support Departments</strong>
             </p>
@@ -78,15 +75,17 @@ const Support = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="email" placeholder="Name" />
-                <Form.Label>Department</Form.Label>
-                <Form.Control type="email" placeholder="Department" />
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="firstname.lastname@royaltech.com"
-                />
+                <Stack gap={2}>
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control type="text" placeholder="Name" />
+                  <Form.Label>Department</Form.Label>
+                  <Form.Control type="text" placeholder="Department" />
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="firstname.lastname@royaltech.com"
+                  />
+                </Stack>
               </Form.Group>
               <Form.Group
                 className="mb-3"
@@ -99,7 +98,7 @@ const Support = () => {
             </Form>
           </Col>
         </Row>
-      </div>
+      </Container>
     </div>
   );
 };
