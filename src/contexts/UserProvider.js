@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export const UserProvider = (props) => {
   const [users, setUsers] = useState([]);
-  const baseUrl = "http://localhost:4000/api/users/";
+  const baseUrl = "https://peoplesoft-api.vercel.app/api/users/";
 
   useEffect(() => {
     async function fetchData() {
@@ -56,10 +56,6 @@ export const UserProvider = (props) => {
       getAllUsers();
       return new Promise((resolve) => resolve(response.data));
     });
-    // .catch((error) => {
-    //   console.error("Error fetching user:", error);
-    //   throw error; // Let the error propagate
-    // });
   }
 
   function updateOneUser(user) {

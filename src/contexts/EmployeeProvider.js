@@ -4,7 +4,7 @@ import EmployeeContext from "./EmployeeContext";
 
 export const EmployeeProvider = (props) => {
   const [employee, setEmployee] = useState([]);
-  const baseUrl = "http://localhost:4000/api/employee/";
+  const baseUrl = "https://peoplesoft-api.vercel.app/api/employee/";
 
   useEffect(() => {
     async function fetchData() {
